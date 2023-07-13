@@ -32,16 +32,22 @@ namespace Lurker.BattleNet.Services
                 return games;
             }
 
-            foreach (var directory in Directory.GetDirectories(defaultInstallPath))
+            try
             {
-                var game = new BattleNetGame(directory);
-                game.Initialize();
-                if (string.IsNullOrEmpty(game.ExeFilePath))
+                foreach (var directory in Directory.GetDirectories(defaultInstallPath))
                 {
-                    continue;
-                }
+                    var game = new BattleNetGame(directory);
+                    game.Initialize();
+                    if (string.IsNullOrEmpty(game.ExeFilePath))
+                    {
+                        continue;
+                    }
 
-                games.Add(game);
+                    games.Add(game);
+                }
+            }
+            catch
+            {
             }
 
             return games;
