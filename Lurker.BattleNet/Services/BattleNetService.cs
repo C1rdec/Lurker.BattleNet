@@ -11,7 +11,7 @@ namespace Lurker.BattleNet.Services
     {
         protected override string ProcessName => "BattleNet";
 
-        protected override string OpenLink => string.Empty;
+        protected override string OpenUrl => string.Empty;
 
         private static string ConfigFilePath => Path.Combine(GetFolderPath(SpecialFolder.ApplicationData), "Battle.net", "Battle.net.config");
 
